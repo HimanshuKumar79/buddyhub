@@ -35,10 +35,16 @@ const LoginPage = () => {
     // console.log(data);
     setIsLoading(true);
     addName
-      ? userRegister({ email: data.email, password: data.password,setIsLoading:setIsLoading })
-      : Login({ email: data.email, password: data.password,setIsLoading:setIsLoading });
-
-
+      ? userRegister({
+          email: data.email,
+          password: data.password,
+          setIsLoading: setIsLoading,
+        })
+      : Login({
+          email: data.email,
+          password: data.password,
+          setIsLoading: setIsLoading,
+        });
   };
   return (
     <div className="w-[100vw] h-[100vh] flex items-center justify-center">
@@ -71,10 +77,20 @@ const LoginPage = () => {
               <img src={logo} width={40} />
               <p className="text-[30px] ">BuddyHub</p>
             </div>
-            <p className="text-[40px] font-semibold">Login to your Account</p>
-            <p className="text-[16px] text-[#a39c9c]">
-              Welcome back! Select method to log in:
-            </p>
+            {addName ? (
+              <p className="text-[40px] font-semibold">Welcome to BuddyHub</p>
+            ) : (
+              <p className="text-[40px] font-semibold">Login to your Account</p>
+            )}
+            {addName ? (
+              <p className="text-[16px] text-[#a39c9c]">
+                Welcome to BuddyHub! Select method to Register:
+              </p>
+            ) : (
+              <p className="text-[16px] text-[#a39c9c]">
+                Welcome back! Select method to log in:
+              </p>
+            )}
           </div>
           <div className="flex justify-evenly items-center w-full">
             <div
