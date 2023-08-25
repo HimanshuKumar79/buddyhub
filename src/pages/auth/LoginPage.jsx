@@ -18,10 +18,12 @@ import {
   AuthGoogle,
   AuthFacebook,
 } from "./AuthLogic/authLogic";
+import Loader from "../../components/Loader";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [addName, setAddName] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -31,9 +33,12 @@ const LoginPage = () => {
 
   const Authantication = async (data) => {
     // console.log(data);
+    setIsLoading(true);
     addName
-      ? userRegister({ email: data.email, password: data.password })
-      : Login({ email: data.email, password: data.password });
+      ? userRegister({ email: data.email, password: data.password,setIsLoading:setIsLoading })
+      : Login({ email: data.email, password: data.password,setIsLoading:setIsLoading });
+
+    
   };
   return (
     <div className="w-[100vw] h-[100vh] flex items-center justify-center">
@@ -169,11 +174,17 @@ const LoginPage = () => {
                 </a>
               </div>
               <div className="w-full flex flex-col gap-4 items-center justify-center">
-                <input
-                  type="submit"
-                  value={addName ? "Register" : "LogIn"}
-                  className="w-[83%] flex cursor-pointer justify-center items-center bg-[#004cef] hover:bg-[#406dcd] transition-colors duration-200 py-3 text-white rounded-lg font-semibold"
-                />
+                {isLoading ? (
+                  <div className="w-[83%] flex cursor-pointer justify-center items-center bg-[#004cef] hover:bg-[#406dcd] transition-colors duration-200 py-3 text-white rounded-lg font-semibold">
+                    <Loader />
+                  </div>
+                ) : (
+                  <input
+                    type="submit"
+                    value={addName ? "Register" : "LogIn"}
+                    className="w-[83%] flex cursor-pointer justify-center items-center bg-[#004cef] hover:bg-[#406dcd] transition-colors duration-200 py-3 text-white rounded-lg font-semibold"
+                  />
+                )}
                 {addName ? (
                   <p>
                     Already have an account?{" "}

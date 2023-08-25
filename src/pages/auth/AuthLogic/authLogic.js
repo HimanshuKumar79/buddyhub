@@ -10,23 +10,27 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 
-export const userRegister = async ({ email, password }) => {
+export const userRegister = async ({ email, password, setIsLoading }) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
-    localStorage.setItem("email", email);
+    // localStorage.setItem("email", email);
     toast.success("Account created successfully");
+    setIsLoading(false);
   } catch (error) {
     toast.error(error.message);
+    setIsLoading(false);
   }
 };
 
-export const Login = async ({ email, password }) => {
+export const Login = async ({ email, password, setIsLoading }) => {
   try {
     const res = await signInWithEmailAndPassword(auth, email, password);
-    localStorage.setItem("email", email);
+    // localStorage.setItem("email", email);
     toast.success("Login successfully");
+    setIsLoading(false);
   } catch (error) {
     toast.error(error.message);
+    setIsLoading(false);
   }
 };
 
