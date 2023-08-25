@@ -1,7 +1,7 @@
 import React from "react";
 
-const NavBar = () => {
+const SignupPage = () => {
   return <div></div>;
 };
 
-export default NavBar;
+export default SignupPage;
