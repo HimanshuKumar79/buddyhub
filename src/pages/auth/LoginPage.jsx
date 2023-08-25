@@ -12,7 +12,12 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useForm } from "react-hook-form";
-import { Login, userRegister, AuthGoogle, AuthFacebook } from "./AuthLogic/authLogic";
+import {
+  Login,
+  userRegister,
+  AuthGoogle,
+  AuthFacebook,
+} from "./AuthLogic/authLogic";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -75,8 +80,9 @@ const LoginPage = () => {
               <p className="text-[19px] text-[#1c1a1a] font-semibold">Google</p>
             </div>
             <div
-            onClick={() => AuthFacebook()}
-            className="flex gap-1 cursor-pointer justify-between items-center border-2 border-solid border-[#d6cfcf] px-12 py-2 rounded-md">
+              onClick={() => AuthFacebook()}
+              className="flex gap-1 cursor-pointer justify-between items-center border-2 border-solid border-[#d6cfcf] px-12 py-2 rounded-md"
+            >
               <img src={Facebook} width={25} />
               <p className="text-[19px] text-[#1c1a1a] font-semibold">
                 Facebook
