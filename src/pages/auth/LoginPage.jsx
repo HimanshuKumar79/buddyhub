@@ -38,12 +38,12 @@ const LoginPage = () => {
       ? userRegister({ email: data.email, password: data.password,setIsLoading:setIsLoading })
       : Login({ email: data.email, password: data.password,setIsLoading:setIsLoading });
 
-    
+
   };
   return (
     <div className="w-[100vw] h-[100vh] flex items-center justify-center">
       {/* LeftSide of LoginPage */}
-      <div className="w-[50vw] h-[100vh] bg-[#004cef] flex flex-col justify-between items-center rounded-r-lg py-9">
+      <div className="w-[50vw] h-[100vh] bg-[#004cef] flex flex-col justify-between items-center rounded-r-2xl py-9">
         <div className="absolute h-96 w-96 bg-gradient-to-b from-[#ffffff58] to-[#ffffff17] rounded-full top-56 "></div>
 
         <div className="absolute flex flex-col items-center justify-evenly h-96 top-56">
